@@ -31,7 +31,6 @@ rclone bisync "$LOCAL_DIR" "$REMOTE_DIR" \
   --transfers 3 \
   --checkers 8 \
   --resync --resync-mode path1 \
-  --dry-run \
   -P -v
 
 STATUS_SYNC=$?
