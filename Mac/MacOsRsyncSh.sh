@@ -8,15 +8,14 @@ DESTINO="/usr/local/bin/"
 
 echo "Sincronizando os scripts da pasta local para $DESTINO..."
 
-# rsync inteligente: atualiza apenas modificados
-sudo rsync -av --include="*/" --include="*.sh" --exclude="*" "$ORIGEM" "$DESTINO"
 
-# Aplica permissão de execução a todos os .sh enviados
-sudo chmod +x /usr/local/bin/*.sh
+# rsync inteligente: apenas arquivos .sh da raiz
+sudo rsync -av --include="*.sh" --exclude="*" "$ORIGEM" "$DESTINO"
 
 STATUS_SYNC=$?
 
 if [ $STATUS_SYNC -eq 0 ]; then
+  # O (N) garante que se não houver arquivos, o chmod não quebra o script
   sudo chmod +x /usr/local/bin/*.sh(N)
   echo "-------------------------------------"
   echo " SINCRONIZAÇÃO CONCLUÍDA COM SUCESSO!"
