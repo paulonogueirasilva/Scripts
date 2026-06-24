@@ -4,7 +4,7 @@
 # ========================
 LOCAL_DIR="/Users/paulonogueirasilva/gdrive_mmc"
 REMOTE_DIR="gdrive_mmc:"
-FILTER_FILE="/Users/paulonogueirasilva/gdrive_pns/Projects/Terminal/Filters/Terminal-Mac-Filters.txt"
+FILTER_FILE="/Users/paulonogueirasilva/Documents/GitHub/Scripts/Mac/Filters/Terminal-Mac-Filters.txt"
 
 echo "--------------------------------------"
 echo " INICIANDO RCLONE BISYNC"

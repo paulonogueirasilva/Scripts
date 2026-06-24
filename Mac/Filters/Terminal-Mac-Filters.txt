@@ -1,0 +1,9 @@
+# Ignorar arquivos temporários e ocultos do ecossistema Apple/Google (Sempre no topo)
+- .DS_Store
+- ._*
+- .Spotlight-V100
+- .Trashes
+- .Trash/**
+
+# Permitir expressamente todo o resto do diretório (pastas, imagens, scripts, etc.)
++ **
