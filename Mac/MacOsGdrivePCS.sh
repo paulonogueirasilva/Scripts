@@ -31,7 +31,7 @@ rclone bisync "$LOCAL_DIR" "$REMOTE_DIR" \
   --transfers 3 \
   --checkers 8 \
   --resync \
-k  -P -v
+  -P -v
 
 STATUS_SYNC=$?
 
