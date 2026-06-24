@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # Origem: Caminho absoluto da pasta do seu repositório local
-ORIGEM="$HOME/Documents/GitHub/Scripts/Mac"
+ORIGEM="$HOME/Documents/GitHub/Scripts/Mac/"
 
 # Destino: Pasta local do sistema macOS
 DESTINO="/usr/local/bin/"
