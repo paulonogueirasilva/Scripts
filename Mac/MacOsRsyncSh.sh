@@ -26,5 +26,3 @@ else
   echo " ERRO NA SINCRONIZAÇÃO!"
   echo "------------------------"
 fi
-
-echo "Sincronização concluída com sucesso!"
