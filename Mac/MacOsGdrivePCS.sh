@@ -10,13 +10,13 @@ echo "--------------------------------------"
 echo " INICIANDO RCLONE BISYNC"
 echo " Podcast Saravando <--> Local Mac"
 echo "--------------------------------------"
-# ===================================================================
+# ========================================================================
 # EXECUÇÃO DO COMANDO UNIFICADO
 #
 # --dry-run \: para simulação
 # --resync \: para a primeira sincronização ou possível resincronização
-#
-# ===================================================================
+# --resync --resync-mode path1 \: para sincronizar a partir da pasta local
+# ========================================================================
 rclone bisync "$LOCAL_DIR" "$REMOTE_DIR" \
   --filter-from "$FILTER_FILE" \
   --compare size,modtime \
@@ -30,6 +30,8 @@ rclone bisync "$LOCAL_DIR" "$REMOTE_DIR" \
   --tpslimit 4 \
   --transfers 3 \
   --checkers 8 \
+  --resync --resync-mode path1 \
+  --dry-run \
   -P -v
 
 STATUS_SYNC=$?
