@@ -27,11 +27,13 @@ rclone bisync "$LOCAL_DIR" "$REMOTE_DIR" \
   --fast-list \
   --resilient \
   --force \
-  --tpslimit 4 \
-  --transfers 3 \
-  --checkers 8 \
+  --tpslimit 3 \
+  --transfers 2 \
+  --checkers 4 \
+  --drive-chunk-size 64M \
+  --no-cleanup \
   --resync --resync-mode path1 \
-  -P -v
+
 
 STATUS_SYNC=$?
 
