@@ -16,6 +16,7 @@ echo "--------------------------------------"
 # --dry-run \: para simulação
 # --resync \: para a primeira sincronização ou possível resincronização
 # --resync --resync-mode path1 \: para sincronizar a partir da pasta local
+# -P -v: para mostrar o progresso e detalhes da execução
 # ========================================================================
 rclone bisync "$LOCAL_DIR" "$REMOTE_DIR" \
   --filter-from "$FILTER_FILE" \
@@ -31,7 +32,7 @@ rclone bisync "$LOCAL_DIR" "$REMOTE_DIR" \
   --transfers 2 \
   --checkers 4 \
   --drive-chunk-size 64M \
-  -P -v
+  --resync --resync-mode path1
 
 STATUS_SYNC=$?
 
