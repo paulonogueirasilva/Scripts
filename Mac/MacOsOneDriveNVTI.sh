@@ -3,7 +3,7 @@
 # CONFIGURAÇÃO DE CAMINHOS
 # ========================
 LOCAL_DIR="/Users/paulonogueirasilva/onedrive_nvti"
-REMOTE_DIR="onedrive_nvti:Rclone"
+REMOTE_DIR="onedrive_nvti:"
 FILTER_FILE="/Users/paulonogueirasilva/Documents/GitHub/Scripts/Mac/Filters/Terminal-Mac-Filters.txt"
 
 echo "--------------------------------------"
