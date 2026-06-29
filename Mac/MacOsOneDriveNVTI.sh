@@ -33,7 +33,6 @@ rclone bisync "$LOCAL_DIR" "$REMOTE_DIR" \
   --checkers 4 \
   --drive-chunk-size 64M \
   --resync --resync-mode path1 \
-  --dry-run \
   -P -v
 
 STATUS_SYNC=$?
