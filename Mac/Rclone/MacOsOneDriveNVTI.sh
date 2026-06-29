@@ -13,6 +13,7 @@ echo "--------------------------------------"
 # ========================================================================
 # EXECUÇÃO DO COMANDO UNIFICADO
 #
+# --delete-during \: para deletar arquivos durante a sincronização
 # --dry-run \: para simulação
 # --resync \: para a primeira sincronização ou possível resincronização
 # --resync --resync-mode path1 \: para sincronizar a partir da pasta local
@@ -22,7 +23,7 @@ rclone bisync "$LOCAL_DIR" "$REMOTE_DIR" \
   --filter-from "$FILTER_FILE" \
   --compare size,modtime \
   --slow-hash-sync-only \
-  --delete-after \
+  --delete-during \
   --remove-empty-dirs \
   --fix-case \
   --fast-list \
