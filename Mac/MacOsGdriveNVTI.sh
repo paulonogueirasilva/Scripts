@@ -2,8 +2,8 @@
 # ========================
 # CONFIGURAÇÃO DE CAMINHOS
 # ========================
-LOCAL_DIR="/Users/paulonogueirasilva/gdrive_nvti"
-REMOTE_DIR="gdrive_nvti:"
+LOCAL_DIR="/Users/paulonogueirasilva/onedrive_nvti"
+REMOTE_DIR="onedrive_nvti:Rclone"
 FILTER_FILE="/Users/paulonogueirasilva/Documents/GitHub/Scripts/Mac/Filters/Terminal-Mac-Filters.txt"
 
 echo "--------------------------------------"
@@ -33,6 +33,7 @@ rclone bisync "$LOCAL_DIR" "$REMOTE_DIR" \
   --checkers 4 \
   --drive-chunk-size 64M \
   --resync --resync-mode path1 \
+  --dry-run \
   -P -v
 
 STATUS_SYNC=$?

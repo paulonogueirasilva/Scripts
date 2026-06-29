@@ -4,6 +4,8 @@
 - .Spotlight-V100
 - .Trashes
 - .Trash/**
+- Personal Vault/**
+- Cofre Pessoal/**
 
 # Permitir expressamente todo o resto do diretório (pastas, imagens, scripts, etc.)
 + **
