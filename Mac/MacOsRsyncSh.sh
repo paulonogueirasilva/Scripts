@@ -1,13 +1,12 @@
 #!/usr/bin/env zsh
 
 # Origem: Caminho absoluto da pasta do seu repositório local
-ORIGEM="$HOME/Documents/GitHub/Scripts/Mac/"
+ORIGEM="$HOME/Documents/GitHub/Scripts/Mac/Rclone/"
 
 # Destino: Pasta local do sistema macOS
 DESTINO="/usr/local/bin/"
 
 echo "Sincronizando os scripts da pasta local para $DESTINO..."
-
 
 # rsync inteligente: apenas arquivos .sh da raiz
 sudo rsync -av --include="*.sh" --exclude="*" "$ORIGEM" "$DESTINO"
