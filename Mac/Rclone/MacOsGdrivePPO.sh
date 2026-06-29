@@ -22,6 +22,7 @@ rclone bisync "$LOCAL_DIR" "$REMOTE_DIR" \
   --filter-from "$FILTER_FILE" \
   --compare size,modtime \
   --slow-hash-sync-only \
+  --delete-delay 15s \
   --delete-after \
   --remove-empty-dirs \
   --fix-case \
