@@ -10,6 +10,24 @@ echo "--------------------------------------"
 echo " INICIANDO RCLONE BISYNC"
 echo " Mandalas, Magia & Cia. <--> Local Mac"
 echo "--------------------------------------"
+
+# 1. Evitar execuções sobrepostas (Crucial para o Bisync a cada 15 min)
+if pgrep -x "rclone" > /dev/null; then
+  echo "Rclone já está em execução de Mandalas, Magia & Cia. <--> Local Mac"
+  echo "Abortando esta rodada para evitar corrupção da base do Bisync."
+  exit 1
+fi
+
+# 2. TRAVA DE CONFIRMAÇÃO (Apenas se o script for executado manualmente no terminal)
+if [ -t 0 ]; then
+  echo -n "Deseja iniciar o rclone Mandalas, Magia & Cia. <--> Local Mac? [y/n]: "
+  read -r resposta
+  if [[ ! "$resposta" =~ ^[Yy]$ ]]; then
+    echo "Sincronização cancelada pelo usuário."
+    exit 0
+  fi
+fi
+
 # ========================================================================
 # EXECUÇÃO DO COMANDO UNIFICADO
 #

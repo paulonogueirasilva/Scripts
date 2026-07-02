@@ -1,15 +1,44 @@
 #!/usr/bin/env zsh
+# ========================
+# CONFIGURAÇÃO DE CAMINHOS
+# ========================
+PENDRIVE_NAME="P1RED128Gb"
+ORIGEM_PATH="/Volumes/${PENDRIVE_NAME}/P1RED128Gb_DATA/Music/Media.localized/Music"
+REMOTE_DIR="mac_to_ubuntu_music:/home/paulonogueirasilva/Music/Music"
+FILTER_FILE="/Users/paulonogueirasilva/Documents/GitHub/Scripts/Mac/Filters/Terminal-Mac-Filters.txt"
 
-echo "---------------------------"
-echo "RCLONE: Mac_to_Ubuntu_Music"
-echo "---------------------------"
+echo "--------------------------------------"
+echo " INICIANDO RCLONE BISYNC"
+echo " Mac_to_Ubuntu_Music"
+echo "--------------------------------------"
 
-rclone sync "/Users/paulonogueirasilva/Music/Music/Media.localized/Music" "mac_to_ubuntu_music:/home/paulonogueirasilva/Music/Music" --exclude-from "/Users/paulonogueirasilva/Library/CloudStorage/GoogleDrive-pnogueirasilva@gmail.com/My Drive/Projects/Terminal/Filters/Terminal-Mac-Filters.txt" --delete-during --fast-list --checksum --transfers 4 --checkers 8 -P
+# Verificar se o pendrive está conectado (testa se o diretório existe)
+if [ ! -d "$ORIGEM_PATH" ]; then
+  echo "Erro: O pendrive '$PENDRIVE_NAME' não está conectado ou o caminho das músicas não foi encontrado!"
+  say "Erro! Pendrive não encontrado. Abortando script."
+  exit 1
+fi
+
+# Se chegou aqui, o pendrive está conectado. Executa o rclone.
+rclone sync "$ORIGEM_PATH" "mac_to_ubuntu_music:/home/paulonogueirasilva/Music/Music" \
+
+rclone sync "$ORIGEM_PATH" "$REMOTE_DIR" \
+  --filter-from "$FILTER_FILE" \
+  --compare size,modtime \
+  --delete-during \
+  --remove-empty-dirs \
+  --checksum \
+  --fix-case \
+  --fast-list \
+  --tpslimit 3 \
+  --transfers 2 \
+  --checkers 4 \
+  --drive-chunk-size 64M \
+  -P -v
 
 #Verificar se o comando anterior falhou
 if [ $? -eq 0 ]; then
-  say "Sucesso na execução!"
+  say "Sucesso!"
   else
     say "Erro! Erro! Erro! Script mal sucedido!"
 fi
-

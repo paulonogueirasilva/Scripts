@@ -1,6 +1,8 @@
-# Ignorar arquivos temporários e ocultos do ecossistema Apple/Google (Sempre no topo)
+# Ignorar arquivos temporários e ocultos (Sempre no topo)
 - .DS_Store
 - ._*
+- ~$*
+- .~lock.*
 - .Spotlight-V100
 - .Trashes
 - .Trash/**
