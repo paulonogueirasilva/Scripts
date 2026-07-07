@@ -20,8 +20,6 @@ if [ ! -d "$ORIGEM_PATH" ]; then
 fi
 
 # Se chegou aqui, o pendrive está conectado. Executa o rclone.
-rclone sync "$ORIGEM_PATH" "mac_to_ubuntu_music:/home/paulonogueirasilva/Music/Music" \
-
 rclone sync "$ORIGEM_PATH" "$REMOTE_DIR" \
   --filter-from "$FILTER_FILE" \
   --compare size,modtime \

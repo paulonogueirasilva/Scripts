@@ -29,7 +29,7 @@ OUTDATED=$(brew outdated --quiet | wc -l | xargs)
 
 # [3/5] DIRETÓRIOS E BACKUP
 echo -e "\n${YELLOW}[3/5] Status dos Diretórios de Trabalho/Backup${NC}"
-PATHS=("$HOME/Documents/Postman" "$HOME/Documents/Scenarist" "$HOME/Documents/GitHub")
+PATHS=("$HOME/Documents/Postman" "$HOME/Documents/GitHub")
 for p in "${PATHS[@]}"; do
     [ -d "$p" ] && echo -e "${GREEN}[OK]${NC} $p ($(du -sh "$p" | awk '{print $1}'))" || echo -e "${RED}[ERRO]${NC} $p ausente."
 done
