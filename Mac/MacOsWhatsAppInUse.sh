@@ -4,6 +4,10 @@
 # MacOsWhatsAppInUse.sh
 # Check if WhatsApp is in use
 #
+# 20260708
+# Elimina WhatsApp do MacOS se estiver em uso
+# pkill -9 -f WhatsApp
+#
 echo #
 echo Check if WhatsApp is in use
 echo #
@@ -16,6 +20,5 @@ echo #
 if [ $? -eq 0 ]; then
   say "Sucesso na execução"
   else
-    say "Erro! Erro! Erro! Script mal sucedido!"
+    say "Erro! Erro! Erro!"
 fi
-
