@@ -5,9 +5,9 @@
 #
 
 echo #
-echo "PATH ATUAL"
-echo ----------
-pwd
+echo "PASTA DE CASKS ATUAIS"
+echo ---------------------
+echo "/opt/homebrew/Caskroom"
 
 echo #
 echo "ATUALIZANDO LISTAS (UPDATE)"
@@ -19,18 +19,6 @@ echo "ATUALIZANDO PACOTES E CASKS (UPGRADE)"
 echo -------------------------------------
 # Forca a atualizacao de todos os casks (greedy)
 brew upgrade --cask --greedy
-
-# Verificar se o comando de upgrade falhou
-if [ $? -eq 0 ]; then
-  say "Sucesso!"
-else
-  say "Erro! Erro! Erro! Script mal sucedido!"
-fi
-
-echo #
-echo "PASTA DE CASKS ATUAIS"
-echo ---------------------
-ls -lah /opt/homebrew/Caskroom
 
 echo #
 echo "LIMPEZA (CLEANUP)"
@@ -64,3 +52,10 @@ echo "LISTA DE PACOTES INSTALADOS"
 echo ---------------------------
 brew list
 echo #
+
+# Verificar se o comando de upgrade falhou
+if [ $? -eq 0 ]; then
+  say "Sucesso!"
+else
+  say "Erro! Erro! Erro!"
+fi
