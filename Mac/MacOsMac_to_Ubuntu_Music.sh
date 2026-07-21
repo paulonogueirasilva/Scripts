@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 # ========================
+# 20260721 - Descontinuado
 # CONFIGURAÇÃO DE CAMINHOS
 # ========================
 PENDRIVE_NAME="P1RED128Gb"
