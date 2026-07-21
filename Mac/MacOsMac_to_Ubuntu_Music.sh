@@ -22,16 +22,12 @@ fi
 # Se chegou aqui, o pendrive está conectado. Executa o rclone.
 rclone sync "$ORIGEM_PATH" "$REMOTE_DIR" \
   --filter-from "$FILTER_FILE" \
-  --compare size,modtime \
   --delete-during \
-  --remove-empty-dirs \
-  --checksum \
   --fix-case \
   --fast-list \
   --tpslimit 3 \
   --transfers 2 \
   --checkers 4 \
-  --drive-chunk-size 64M \
   -P -v
 
 #Verificar se o comando anterior falhou
