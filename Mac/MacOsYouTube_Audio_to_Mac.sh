@@ -33,7 +33,7 @@ yt-dlp -f 'ba[ext=m4a]/ba' \
 
 # O '$?' verifica se o yt-dlp terminou com sucesso (código 0) antes de exibir a mensagem
 if [ $? -eq 0 ]; then
-    print "\nDownload concluído com sucesso!"
+    print "\nDownload do áudio concluído com sucesso!"
 else
-    print "\nOcorreu um erro durante o download."
+    print "\nOcorreu um erro durante o download do áudio."
 fi
