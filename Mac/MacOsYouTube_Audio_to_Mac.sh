@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+#
+# MacOsYouTube_Audio_to_Mac.sh
+#
 # Define a pasta de destino desejada
 DIRETORIO_ALVO="/Users/paulonogueirasilva/Downloads"
 

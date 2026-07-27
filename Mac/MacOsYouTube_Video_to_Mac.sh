@@ -14,26 +14,26 @@ else
     echo "Você já está na pasta correta: $DIRETORIO_ALVO"
 fi
 
-# Solicita a URL do vídeo do YouTube (usando read/print nativos do Zsh)
+# Solicita a URL do vídeo do YouTube
 read "URL_VIDEO?Cole a URL do vídeo do YouTube: "
 
-print "\nAguardando o intervalo de segurança e iniciando o download...\n"
+print "\nAguardando o intervalo de segurança e iniciando o download do vídeo...\n"
 
-# Executa o yt-dlp usando os cookies do navegador para evitar o bloqueio (HTTP 429/bot)
-# Altere 'chrome' para 'safari', 'firefox' ou 'brave' se utilizar outro navegador.
-yt-dlp -f 'ba[ext=m4a]/ba' \
+# Executa o yt-dlp para baixar o VÍDEO COMPLETO (Vídeo + Áudio)
+# Junta o melhor vídeo e melhor áudio preferencialmente em MP4/M4A
+yt-dlp -f 'bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4] / bv*+ba/b' \
   --cookies-from-browser chrome \
   --sleep-interval 15 --max-sleep-interval 21 \
-  --extract-audio \
-  --audio-format m4a \
   --embed-thumbnail \
   --embed-metadata \
+  --embed-subs \
+  --sub-langs "pt,en" \
   -o "%(uploader)s - %(title)s.%(ext)s" \
   "$URL_VIDEO"
 
-# O '$?' verifica se o yt-dlp terminou com sucesso (código 0) antes de exibir a mensagem
+# Validação do status do download
 if [ $? -eq 0 ]; then
-    print "\nDownload concluído com sucesso!"
+    print "\nDownload do vídeo concluído com sucesso!"
 else
-    print "\nOcorreu um erro durante o download."
+    print "\nOcorreu um erro durante o download do vídeo."
 fi
