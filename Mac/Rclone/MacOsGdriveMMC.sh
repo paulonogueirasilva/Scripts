@@ -6,6 +6,9 @@ LOCAL_DIR="/Users/paulonogueirasilva/gdrive_mmc"
 REMOTE_DIR="gdrive_mmc:"
 FILTER_FILE="/Users/paulonogueirasilva/Documents/GitHub/Scripts/Mac/Filters/Terminal-Mac-Filters.txt"
 
+# Diretório personalizado onde o Rclone criará os arquivos de controle (.lst) e o arquivo de log
+RCLONE_BASE_DIR="/Users/paulonogueirasilva/Documents/Rclone"
+
 echo "--------------------------------------"
 echo " INICIANDO RCLONE BISYNC"
 echo " Mandalas, Magia & Cia. <--> Local Mac"
@@ -38,6 +41,7 @@ fi
 # -P -v: para mostrar o progresso e detalhes da execução
 # ========================================================================
 rclone bisync "$LOCAL_DIR" "$REMOTE_DIR" \
+  --cache-dir "$RCLONE_BASE_DIR" \
   --filter-from "$FILTER_FILE" \
   --compare size,modtime \
   --slow-hash-sync-only \
@@ -51,6 +55,7 @@ rclone bisync "$LOCAL_DIR" "$REMOTE_DIR" \
   --transfers 2 \
   --checkers 4 \
   --drive-chunk-size 64M \
+  --resync --resync-mode path1 \
   -P -v
 
 STATUS_SYNC=$?
