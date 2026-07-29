@@ -6,6 +6,9 @@ LOCAL_DIR="/Users/paulonogueirasilva/gdrive_ppo"
 REMOTE_DIR="gdrive_ppo:"
 FILTER_FILE="/Users/paulonogueirasilva/Documents/GitHub/Scripts/Mac/Filters/Terminal-Mac-Filters.txt"
 
+# Diretórios de Controle e Log
+RCLONE_WORK_DIR="/Users/paulonogueirasilva/Documents/Rclone/Bisync"
+
 echo "--------------------------------------"
 echo " INICIANDO RCLONE BISYNC"
 echo " Pai Paulinho de Oxóssi <--> Local Mac"
@@ -38,6 +41,7 @@ fi
 # -P -v: para mostrar o progresso e detalhes da execução
 # ========================================================================
 rclone bisync "$LOCAL_DIR" "$REMOTE_DIR" \
+  --workdir "$RCLONE_WORK_DIR" \
   --filter-from "$FILTER_FILE" \
   --compare size,modtime \
   --slow-hash-sync-only \
@@ -51,6 +55,7 @@ rclone bisync "$LOCAL_DIR" "$REMOTE_DIR" \
   --transfers 2 \
   --checkers 4 \
   --drive-chunk-size 64M \
+  --resync --resync-mode path1 \
   -P -v
 
 STATUS_SYNC=$?
