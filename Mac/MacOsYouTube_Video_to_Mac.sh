@@ -3,6 +3,16 @@
 #
 # MacOsYouTube_Video_to_Mac.sh
 #
+# [1. Terminal Mac]  ---> Conectar.
+#
+# [2. Terminal Mac]  ---> Atualiza yt-dlp e move para Downloads:
+# pipx upgrade yt-dlp
+# cd /Users/paulonogueirasilva/Downloads/
+#
+# [3. Script zsh]  ---> Baixa vídeos com yt-dlp para a pasta Downloads:
+# - MacOsYouTube_Video_to_Mac.sh
+# - Informa URL
+#
 # Define a pasta de destino desejada
 DIRETORIO_ALVO="/Users/paulonogueirasilva/Downloads"
 
