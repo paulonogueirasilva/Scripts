@@ -18,7 +18,8 @@ echo #
 echo "ATUALIZANDO PACOTES E CASKS (UPGRADE)"
 echo -------------------------------------
 # Forca a atualizacao de todos os casks (greedy)
-brew upgrade --cask --greedy
+# brew upgrade --cask --greedy
+brew upgrade --greedy
 
 echo #
 echo "LIMPEZA (CLEANUP)"
