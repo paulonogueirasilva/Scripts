@@ -35,8 +35,9 @@ else
 fi
 
 # Solicita a URL do YouTube Music
-echo -n "Cole a URL do YouTube Music: "
-read -r URL_ORIGINAL
+# echo -n "Cole a URL do YouTube Music: "
+# read -r URL_ORIGINAL
+read -r "URL_ORIGINAL?Cole a URL do YouTube Music: "
 
 # Substitui 'music.youtube' por 'www.youtube'
 URL_CORRIGIDA=$(echo "$URL_ORIGINAL" | sed 's/music.youtube/www.youtube/g')

@@ -26,7 +26,7 @@ else
 fi
 
 # Solicita a URL do vídeo do YouTube (usando read/print nativos do Zsh)
-read "URL_VIDEO?Cole a URL do vídeo do YouTube: "
+read -r "URL_VIDEO?Cole a URL do vídeo do YouTube: "
 
 print "\nAguardando o intervalo de segurança e iniciando o download...\n"
 
