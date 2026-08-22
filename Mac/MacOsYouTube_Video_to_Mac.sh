@@ -7,6 +7,7 @@
 #
 # [2. Terminal Mac]  ---> Atualiza yt-dlp e move para Downloads:
 # pipx upgrade yt-dlp
+# pipx upgrade-all
 # cd /Users/paulonogueirasilva/Downloads/
 #
 # [3. Script zsh]  ---> Baixa vídeos com yt-dlp para a pasta Downloads:
